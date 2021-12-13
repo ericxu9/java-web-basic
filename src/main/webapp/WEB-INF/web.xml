@@ -1,0 +1,51 @@
+<web-app>
+    <display-name>Archetype Created Web Application</display-name>
+
+
+    <!-- 定义Servlet,以及路由映射 -->
+    <servlet>
+        <servlet-name>TestServlet</servlet-name>
+        <servlet-class>org.xumiao.servlet.TestServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>TestServlet</servlet-name>
+        <url-pattern>/test</url-pattern>
+    </servlet-mapping>
+
+    <!-- spring mvc 相关 -->
+
+    <!-- 字符过滤器 传值乱码-->
+    <filter>
+        <filter-name>encodingFilter</filter-name>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+        <init-param>
+            <param-name>encoding</param-name>
+            <param-value>UTF-8</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>encodingFilter</filter-name>
+        <url-pattern>/springmvc/*</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>dispatchServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:springmvc.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>dispatchServlet</servlet-name>
+        <url-pattern>/springmvc/*</url-pattern>
+    </servlet-mapping>
+
+    <!--欢迎界面-->
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+    </welcome-file-list>
+</web-app>
