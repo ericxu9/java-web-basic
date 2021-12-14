@@ -76,10 +76,12 @@
                     <artifactId>tomcat7-maven-plugin</artifactId>
                     <version>${tomcat-plugin.version}</version>
                     <configuration>
-                        <url>http://127.0.0.1:8080/</url>
+                        <url>http://127.0.0.1:8888/</url>
+                        <port>8888</port>
                         <server>tomcat</server>
                         <path>/</path><!--WEB应用上下文路径-->
                         <contextReloadable>true</contextReloadable>
+                        <uriEncoding>utf-8</uriEncoding>
                     </configuration>
                 </plugin>
             </plugins>

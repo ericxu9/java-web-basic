@@ -9,7 +9,8 @@ public class MainController {
 
     @RequestMapping("/index")
     @ResponseBody
-    public String index() {
+    public String index(String name) {
+        System.out.println(name);
         return "测试";
     }
 

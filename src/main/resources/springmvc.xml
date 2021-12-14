@@ -8,9 +8,16 @@
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
     <!-- 扫描注解 -->
-    <context:component-scan base-package="org.xumiao.controller"/>
+    <context:component-scan base-package="org.xumiao"/>
     <!-- 注解驱动 -->
-    <mvc:annotation-driven/>
+    <mvc:annotation-driven>
+        <mvc:message-converters>
+            <!--解决返回前端数据中文乱码-->
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <constructor-arg value="UTF-8"/>
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 
 
     <!-- 视图解析器 -->

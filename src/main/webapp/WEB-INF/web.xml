@@ -1,6 +1,10 @@
 <web-app>
-    <display-name>Archetype Created Web Application</display-name>
+    <display-name>Spring MVC XML Configuration Example</display-name>
 
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:app-config.xml</param-value>
+    </context-param>
 
     <!-- 定义Servlet,以及路由映射 -->
     <servlet>
@@ -14,6 +18,9 @@
     </servlet-mapping>
 
     <!-- spring mvc 相关 -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
 
     <!-- 字符过滤器 传值乱码-->
     <filter>
@@ -26,7 +33,7 @@
     </filter>
     <filter-mapping>
         <filter-name>encodingFilter</filter-name>
-        <url-pattern>/springmvc/*</url-pattern>
+        <url-pattern>/*</url-pattern>
     </filter-mapping>
 
     <servlet>
